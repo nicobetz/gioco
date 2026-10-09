@@ -1,0 +1,222 @@
+<html>
+<head>
+	<style>
+body {
+  //overflow: hidden;
+  font-family: Helvetica, sans serif;
+  background: orange;
+}
+input {
+  border-style: solid;
+  border-width: 0px 0px 1px;
+  border-color: #dcdcdc;
+}
+input:hover,
+input:active,
+input:focus {
+  border-color: #454545;
+}
+input[disabled] {
+  background: #cdcdcd;
+  border-color: #dcdcdc;
+}
+h1 {
+	text-align: center;
+}
+#pin {
+  height: 0;
+  width: 0;
+  position: relative;
+  left: 0px;
+  margin-bottom: 0px;
+  border: 20px solid;
+  border-color: transparent transparent black;
+  transform: rotate(180deg);
+}
+.container {
+  position: relative;
+  width: 90%;
+  max-width: 400px;
+}
+.container .btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: grey;
+  color: black;
+  font-size: 10px;
+  padding: 16px 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+opacity: .6;
+z-index: 8;
+font-size: 2rem;
+display: inline-block;
+padding: 1rem;
+}
+
+#circle {
+  width: 300px;
+  height: 300px;
+  background:
+  url(ruotaa.png)
+ 
+    center center;
+  background-size: 300px 300px;
+  transition: transform ease-in-out 10s;
+  transform: rotate(0deg);
+  border-radius: 100%;
+  font-size: 150px;
+  line-height: 100px;
+  vertical-align: top;
+  text-align: center;
+  
+ 
+}
+#pls-click {
+    position: absolute;
+    text-align: center;
+    line-height: 40%;
+    z-index: 10;
+    background: #000;
+    opacity: .6;
+    border-radius: 1rem;
+    color: #fff;
+    font-size: 2rem;
+    top: 20%;
+    left:30%;
+    display: inline-block;
+    padding: 1rem;
+    transform: translateY(-50%) translateX(-50%);
+    width: 10%;
+    cursor: pointer;
+    top:340px;
+    background-attachment: initial;
+}
+#risposta {
+  display: none;
+}
+.cella {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  margin: 3px;
+  background: black;
+  font-size: 20px;
+  text-align: center;
+  vertical-align: middle;
+}
+.cella.lettera {
+  background: green;
+  color: white;
+}
+#lettera {
+  width: 15px;
+}
+
+.punteggio {
+  text-align: center;
+  box-shadow: 1px 1px 5px #333;
+}
+table {
+	position:relative;
+	top:25%;
+	right:40px;
+}
+.button {font-size: 20px;}
+.button1 {font-size: 16px;}
+.button2 {font-size: 16px;}
+.button3 {font-size: 16px;}
+.button4 {font-size: 16px;}
+.button5 {font-size: 16px;}
+</style>
+</head>
+<body>
+<h1>LA RUOTA DELLA FORTUNA</h1>
+<center>
+<button id="inizia_gioco" class="button">Inizia Gioco</button>
+<button id="prossimo_giocatore" class="button1" disabled>Prossimo giocatore</button>
+<button id="cambia_frase" class="button2" disabled>cambia frase</button>
+<input type="text" id="lettera" maxlength="1" disabled />
+<button id="cerca_lettera" class="button3" disabled>cerca_lettera</button>
+<input type="text" id="input_soluzione" disabled />
+<button id="soluzione" class="button5" disabled>soluzione</button>
+</center>
+
+<table  class="table" align="right" cellspacing="3" cellpadding="3" width="400" border="1" bgcolor="#b00e0" id="TABLE1" style="WIDTH: 300px">
+  <tbody><tr>
+    <td><p align="center"><input id="button1" type="button" value="  B  " name="button1" onclick="cerca_lettera('B')"></p></td>
+    <td><p align="center"><input id="button2" type="button" value="  C  " name="button2" onclick="cerca_lettera('C')"></p></td>
+    <td><p align="center"><input id="button3" type="button" value="  D  " name="button3" onclick="cerca_lettera('D')"></p></td>
+    <td><p align="center"><input id="button4" type="button" value="  F  " name="button4" onclick="cerca_lettera('F')"></p></td>
+    <td><p align="center"><input id="button5" type="button" value="  G  " name="button5" onclick="cerca_lettera('G')"></p></td>
+    </tr><tr>
+    <td><p align="center"><input id="button6" type="button" value="  H  " name="button6" onclick="cerca_lettera('H')"></p></td>
+    <td><p align="center"><input id="button7" type="button" value="  J   " name="button7" onclick="cerca_lettera('J')"></p></td>
+    <td><p align="center"><input id="button8" type="button" value="  K   " name="button8" onclick="cerca_lettera('K')"></p></td>
+    <td><p align="center"><input id="button9" type="button" value="  L  " name="button9" onclick="cerca_lettera('L')"></p></td>
+    <td><p align="center"><input id="button10" type="button" value="  M  " name="button10" onclick="cerca_lettera('M')"></p></td>
+  </tr><tr>
+    <td><p align="center"><input id="button11" type="button" value="  N  " name="button11" onclick="cerca_lettera('N')"></p></td>
+    <td><p align="center"><input id="button12" type="button" value="  P  " name="button12" onclick="cerca_lettera('P')"></p></td>
+    <td><p align="center"><input id="button13" type="button" value="  Q  " name="button13" onclick="cerca_lettera('Q')"></p></td>
+    <td><p align="center"><input id="button14" type="button" value="  R  " name="button14" onclick="cerca_lettera('R')"></p></td>
+    <td><p align="center"><input id="button15" type="button" value="  S  " name="button15" onclick="cerca_lettera('S')"></p></td>
+    </tr><tr>
+    <td><p align="center"><input id="button16" type="button" value="  T  " name="button16" onclick="cerca_lettera('T')"></p></td>
+    <td><p align="center"><input id="button17" type="button" value="  V  " name="button17" onclick="cerca_lettera('V')"></p></td>
+    <td><p align="center"><input id="button18" type="button" value="  W  " name="button18" onclick="cerca_lettera('W')"></p></td>
+    <td><p align="center"><input id="button19" type="button" value="  X  " name="button19" onclick="cerca_lettera('X')"></p></td>
+    <td><p align="center"><input id="button20" type="button" value="  Z   " name="button20" onclick="cerca_lettera('Z')"></p></td>
+   </tr><tr>
+	<td><p align="center"><input id="button21" type="button" value="  A   " name="button21" onclick="cerca_lettera('A')"></p></td>
+	<td><p align="center"><input id="button22" type="button" value="  E   " name="button22" onclick="cerca_lettera('E')"></p></td>
+	<td><p align="center"><input id="button23" type="button" value="  I   " name="button23" onclick="cerca_lettera('I')"></p></td>
+	<td><p align="center"><input id="button24" type="button" value="  O   " name="button20" onclick="cerca_lettera('O')"></p></td> 
+	<td><p align="center"><input id="button25" type="button" value="  U   " name="button20" onclick="cerca_lettera('U')"></p></td>
+	</TR>
+   </tbody>
+   </table>
+
+<section>
+<br> 
+  <h4><label>Ora è il turno del giocatore:</label>
+  <span id="giocatore_attivo"></span>
+  </br>
+</section>
+<br>
+
+<label>punteggio:</label>
+  <input type="text" id="punteggio0" size=4 class="punteggio" readonly />
+  <input type="text" id="punteggio1" size=4 class="punteggio" readonly />
+  <input type="text" id="punteggio2" size=4 class="punteggio" readonly />
+</section>
+<section>
+	<center>
+  <div id="pin"></div>
+  <div class="container">
+  <div img src="ruotaa.png" width=200px ></div>
+  <div id="circle" ></div>
+  
+  <button class="btn" id="gira" disabled>gira</button>
+</div>
+  
+   <!-- div id="circle"></div -->
+  <span></span>
+  <span id="valore_ruota"></span>
+</section>
+</center>
+<section>
+  <h2>PROVERBI:</h2>
+  <div id="tabellone"></div>
+  <br>
+  
+
+</body></html>
+
+<script src="funzione.js"></script>
